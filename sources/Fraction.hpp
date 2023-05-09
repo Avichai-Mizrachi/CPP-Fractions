@@ -24,10 +24,8 @@ namespace ariel
             {
                 return num1;
             }
-            else
-            {
-                return _gcd(num2, num1 % num2);
-            }
+
+            return _gcd(num2, num1 % num2);
         }
 
         // Reduce by itself
@@ -50,7 +48,6 @@ namespace ariel
         Fraction(int, int);
         Fraction(float);
         Fraction();
-        ~Fraction() = default;
 
         // Fraction with Fraction
         Fraction operator+(const Fraction &other) const;
@@ -61,7 +58,7 @@ namespace ariel
         // Equalition Fraction with Fraction
         bool operator<(const Fraction &other) const
         {
-            return (other.numerator * denominator) > (numerator * other.denominator);
+            return (numerator * other.denominator) < (other.numerator * denominator);
         }
         bool operator<=(const Fraction &other) const
         {
@@ -69,7 +66,7 @@ namespace ariel
         }
         bool operator>(const Fraction &other) const
         {
-            return (other.numerator * denominator) > (numerator * other.denominator);
+            return (numerator * other.denominator) > (other.numerator * denominator);
         }
         bool operator>=(const Fraction &other) const
         {
@@ -91,27 +88,27 @@ namespace ariel
         Fraction operator/(float other);
 
         // Equalition with float
-        bool operator<(float other)
+        bool operator<(float other) const
         {
             return *this < Fraction(other);
         }
-        bool operator<=(float other)
+        bool operator<=(float other) const
         {
             return *this <= Fraction(other);
         }
-        bool operator>(float other)
+        bool operator>(float other) const
         {
             return *this > Fraction(other);
         }
-        bool operator>=(float other)
+        bool operator>=(float other) const
         {
             return *this >= Fraction(other);
         }
-        bool operator==(float other)
+        bool operator==(float other) const
         {
             return *this == Fraction(other);
         }
-        bool operator!=(float other)
+        bool operator!=(float other) const
         {
             return *this != Fraction(other);
         }
@@ -122,11 +119,11 @@ namespace ariel
         Fraction operator--(int);
 
         // Getters
-        float getNumerator()
+        int getNumerator() const
         {
             return numerator;
         }
-        float getDenominator()
+        int getDenominator() const
         {
             return denominator;
         }
