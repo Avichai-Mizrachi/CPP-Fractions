@@ -17,17 +17,6 @@ namespace ariel
         int numerator;
         int denominator;
 
-        // GCD
-        static int _gcd(int num1, int num2)
-        {
-            if (num2 == 0)
-            {
-                return num1;
-            }
-
-            return _gcd(num2, num1 % num2);
-        }
-
         // Reduce by itself
         void reduce()
         {
@@ -128,7 +117,9 @@ namespace ariel
             return denominator;
         }
 
-        // Friend functions
+        // Friend functions - When a function or class is declared as
+        // a friend of another class, it can access the private
+        // and protected members of that class as if they were its own.
         friend Fraction operator+(float other, const Fraction &fraction2);
         friend Fraction operator-(float other, const Fraction &fraction2);
         friend Fraction operator*(float other, const Fraction &fraction2);

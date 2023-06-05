@@ -178,25 +178,4 @@ namespace ariel
         outstream << fraction.numerator << "/" << fraction.denominator;
         return outstream;
     }
-
-    // std::istream& operator>>(istream& stream, Fraction& frac) {
-    // 	int num = 0, den = 0;
-    // 	stream >> num >> den;
-
-    // 	if (stream.fail() || den == 0)
-    // 		throw runtime_error("Input error");
-
-    // 	if (den < 0)
-    // 	{
-    // 		num = num * -1;
-    // 		den = den * -1;
-    // 	}
-
-    // 	frac.numerator = num;
-    // 	frac.denominator = den;
-
-    // 	frac.reduce();
-
-    // 	return stream;
-    // }
 }
